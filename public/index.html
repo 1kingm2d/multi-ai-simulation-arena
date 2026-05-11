@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-AI Simulation Arena | Call & Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --neon-cyan: #00f0ff; --neon-purple: #b400ff; --bg-dark: #0a0a0f; }
+        body { background-color: var(--bg-dark); color: #e2e8f0; overflow: hidden; font-family: 'Inter', sans-serif; }
+        .glassmorphism { background: rgba(20, 20, 40, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        @keyframes pulse-red { 0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.3); } 50% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.6); } }
+        .on-call { animation: pulse-red 2s infinite; border-color: #ef4444 !important; }
+        
+        .thinking { animation: pulse-neon 1.5s infinite; }
+        @keyframes pulse-neon { 0%, 100% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.3); } 50% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.6); } }
+        
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+        .fade-in { animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="h-screen flex">
+
+    <aside class="w-72 glassmorphism border-r border-white/10 flex flex-col z-20">
+        <div class="p-6 border-b border-white/10">
+            <h1 class="text-xl font-black tracking-tighter bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent italic">ARENA LIVE</h1>
+        </div>
+        <div class="p-4">
+            <button id="new-sim-btn" class="w-full py-3 bg-cyan-600/20 hover:bg-cyan-600/40 border border-cyan-500/50 rounded-xl text-cyan-400 font-bold transition-all">
+                <i class="fas fa-plus-circle mr-2"></i>NEW BROADCAST
+            </button>
+        </div>
+        <div id="sim-list" class="flex-1 overflow-y-auto px-4 space-y-2"></div>
+    </aside>
+
+    <main class="flex-1 flex flex-col">
+        <header class="h-16 glassmorphism border-b border-white/10 flex items-center justify-between px-8">
+            <div class="flex items-center gap-4">
+                <h2 id="active-sim-title" class="font-bold text-gray-400">NO ACTIVE SESSION</h2>
+                <span id="call-status" class="hidden flex items-center gap-2 text-[10px] bg-red-500/20 text-red-400 px-2 py-1 rounded-full border border-red-500/50">
+                    <span class="animate-ping w-1.5 h-1.5 rounded-full bg-red-500"></span> LIVE CALL
+                </span>
+            </div>
+            <div class="flex items-center gap-6">
+                <button id="voice-toggle-all" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+            </div>
+        </header>
+
+        <div id="card-grid" class="flex-1 p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-y-auto">
+            </div>
+
+        <footer class="p-6 glassmorphism border-t border-white/10">
+            <div class="max-w-4xl mx-auto flex items-center gap-4">
+                <div class="relative flex-1">
+                    <input id="global-input" type="text" placeholder="Broadcast a message to the arena..." 
+                        class="w-full bg-black/60 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-cyan-500 transition-all shadow-2xl">
+                </div>
+                <button id="send-btn" class="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-black px-10 py-4 rounded-2xl shadow-xl transition-all active:scale-95 flex items-center gap-2">
+                    <i class="fas fa-paper-plane"></i> BROADCAST
+                </button>
+            </div>
+        </footer>
+    </main>
+
+    <script type="module" src="./js/app.js"></script>
+</body>
+</html>

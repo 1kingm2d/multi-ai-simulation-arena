@@ -1,0 +1,43 @@
+/**
+ * FILE: public/css/style.css
+ * PURPOSE: Global styles and layout
+ */
+:root {
+  --neon-cyan: #00f0ff;
+  --neon-purple: #b400ff;
+  --bg-dark: #0a0a0f;
+  --card-bg: rgba(20, 20, 40, 0.7);
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.glassmorphism {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+}

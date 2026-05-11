@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "start": "deno run --allow-net --allow-read --allow-env --allow-unstable-kv server/main.ts",
+    "dev": "deno run --allow-net --allow-read --allow-env --allow-unstable-kv --watch server/main.ts"
+  },
+  "imports": {
+    "oak": "https://deno.land/x/oak@v12.6.1/mod.ts",
+    "std/": "https://deno.land/std@0.200.0/",
+    "dotenv": "https://deno.land/std@0.200.0/dotenv/load.ts"
+  }
+}
